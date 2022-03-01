@@ -1,0 +1,926 @@
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+
+/*Шрифты, технические классы и повторяющиеся блоки------------------------------------------------------------------------------------------------------------------------*/
+
+body{
+	font-family: Arial, sans-serif;
+	background: #F8F3E9;
+	color: #2C2A2B;
+}
+
+body._lock{
+	overflow: hidden;
+}
+
+._container{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;	
+}
+
+.wrapper{
+	min-height: 100%;
+	min-width: 100%;
+	overflow: hidden;
+}
+
+.ibg{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.ibg img{
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+
+/*Шапка Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+
+.page__header {
+	padding: 40px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.header {}
+.header__container {
+	max-width: 1310px;
+	margin: 0 auto;
+	padding: 0 15px; 
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header__logo {
+	line-height: 135%;
+	font-weight: bold;
+	font-size: 27px;
+	color: #2C2A2B;
+}
+.header__body {
+	display: flex;
+	align-items: center;
+}
+.header__menu {}
+.menu {}
+.menu__list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menu__list > *:not(:last-child){
+	margin-right: 50px;
+}
+.menu__item {}
+.menu__link {
+	color: #2C2A2B;
+	font-size: 14px;
+	line-height: 121%;
+	transition: all 0.3s ease;
+}
+.menu__link:hover{
+	text-decoration: underline;
+	transition: all 0.3s ease;
+}
+.header__icon {
+	display: none;
+	visibility: hidden;
+	width: 30px;
+	height: 20px;
+	position: relative;
+}
+.header__icon span{
+	width: 100%;
+	height: 2px;
+	background-color: #2C2A2B;
+	position: absolute;
+	left: 0;
+	transition: all 0.3s ease;
+}
+.header__icon span:first-child{
+	top: 0;
+	transition: all 0.3s ease;
+}
+.header__icon span:nth-child(2){
+	top: 50%;
+	transition: all 0.3s ease;
+}
+.header__icon span:last-child{
+	top: 100%;
+	transition: all 0.3s ease;
+}
+.header__social{
+	transition: all 0.3s ease;
+}
+.header__social:hover {
+	opacity: 0.7;
+	transition: all 0.3s ease;
+
+}
+.header__socials{
+	display: flex;
+	align-items: center;
+}
+.header__socials > *:not(:last-child){
+	margin-right: 30px;
+}
+.header__social ion-icon {
+	font-size: 20px;
+	color: #2C2A2B;
+}
+
+@media (max-width: 768px){
+	.header__socials{
+		display: none;
+	}
+}
+
+
+@media (max-width: 543px){
+	.menu__list > *:not(:last-child){
+		margin-right: 30px;
+	}
+}	
+
+@media (max-width: 450px){
+	.header__icon {
+		display: block;
+		visibility: visible;
+		transition: all 0.3s ease;
+		z-index: 11;
+	}
+
+	.header__icon._active  span:first-child{
+		top: 50%;
+		transform: rotate(-135deg);
+		transition: all 0.3s ease;
+	}
+	.header__icon._active  span:nth-child(2){
+		opacity: 0;
+		transition: all 0.3s ease;
+	}
+	.header__icon._active  span:last-child{
+		top: 50%;
+		transform: rotate(135deg);
+		transition: all 0.3s ease;
+	}
+
+	.header__menu{
+		z-index: 10;
+		padding-top: 150px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #FCEBCA;
+		transform: translate(0,-200%);
+		flex-direction: column;
+		overflow: auto;
+		transition: all 0.3s ease;
+	}
+	.header__menu._active{
+		transform: translate(0,0);
+		transition: all 0.3s ease;
+	}
+	.menu__list{
+		flex-direction: column;
+	}
+	.menu__list > *:not(:last-child){
+		margin-right: 0px;
+		margin-bottom: 30px;
+	}
+	.menu__link{
+		font-size: 30px;
+	}
+}	
+
+
+/*Главный Экран Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+
+.page__main-screen {
+	padding: 167px 0 90px 0;
+}
+.main-screen {}
+.main-screen__container {}
+._container {}
+.main-screen__body {
+	display: flex;	
+	margin: 0 -100px;
+}
+.main-screen_col {
+	flex: 1 0 50%;
+	padding: 0 100px;
+}
+
+.item-main-screen {}
+.item-main-screen__img {
+	padding-bottom: 59%;
+}
+.item-main-screen__img.ring2{
+	padding-right: 0%;
+	padding-bottom: 0%;
+}
+
+.item-main-screen__content {}
+.item-main-screen__title {
+	font-size:  calc(34px + 30 * (100vw / 1440));
+	
+	line-height: 130%;
+	font-weight: 600;
+	color: #2C2A2B;
+}
+.item-main-screen__title.second{
+	font-size: 34px;
+}
+.item-main-screen__title:not(:last-child){
+	margin-bottom: 	82px;
+}
+.item-main-screen__title.second:not(:last-child){
+	margin-bottom: 	10px;
+}
+.item-main-screen__materials {
+	display: flex;
+	justify-content: space-between;
+	max-width: 400px;
+
+}
+.item-main-screen__material:first-child	 {
+	padding-right: 50px;
+}
+.item-main-screen__material div{
+	font-size: 20px;
+}
+.item-main-screen__material div:not(:last-child){
+	margin-bottom: 10px;
+}
+.second {}
+.item-main-screen__text {
+	max-width: 354px;
+	font-size: 14px;
+	line-height: 150%;
+	color: #3D3D3F;
+}
+.item-main-screen__text{
+	margin-bottom: 25px;
+}
+
+.item-main-screen__img.ring2 img{
+	width: calc(250px + 104 * (100vw / 1440));
+}
+
+@media (max-width: 1024px){
+	.main-screen__body{
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.main-screen__body .main-screen_col:first-child .main-screen__item{
+		display: flex;
+		flex-direction: column;
+		align-items: center;	}
+	.main-screen__body .main-screen_col:first-child{
+		margin-bottom: 70px;
+	}
+	.main-screen__body .main-screen_col:last-child .main-screen__item{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.main-screen__body .main-screen_col:last-child .main-screen__item .item-main-screen__content{
+		padding-right: 50px;
+	}
+	.item-main-screen__title{
+		text-align: center;
+	}
+	.item-main-screen__title.second{
+		text-align: left;
+	}
+	.item-main-screen__img{
+		padding-right: 100%;
+	}
+	.page__main-screen {
+	padding: 167px 0 0px 0;
+}
+}
+
+
+@media (max-width: 768px){
+	.item-main-screen__materials{
+		max-width: 100%;
+		text-align: center;
+	}
+	 .main-screen__item{
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+	.item-main-screen__content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	.main-screen__body .main-screen_col:last-child .main-screen__item .item-main-screen__content{
+		padding-right: 0px;
+	}
+	
+}
+
+/*Магазин Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+
+.page__shop{
+	padding: 165px 0;
+}
+.shop__container{
+	max-width: 1340px;
+	margin: 0 auto;
+	padding: 0 15px; 
+}
+.shop__body {
+	display: flex;
+	flex-direction: column;
+}
+.shop__row {
+	display: flex;
+	align-items: center;
+	margin: 0 -76.5px;
+}
+.shop__col {
+	flex: 1 0 50%;
+	padding: 0 76.5px;
+}
+.shop__row:not(:last-child){
+	margin-bottom: 200px;
+}
+.shop__item {}
+.item-shop {}
+
+.item-shop__title {
+	font-size: 40px;
+	color: #2C2A2B;
+	font-weight: bold;
+	line-height: 144%;
+}
+.item-shop__title:not(:last-child){
+	margin-bottom: 30px;
+}
+.item-shop__text {
+	color: #3D3D3F;
+	font-size: 14px;
+	line-height: 150%;
+	max-width: 441px
+}
+.item-shop__text:not(:last-child){
+	margin-bottom: 50px;
+} 
+.item-shop__buy-price {
+	display: flex;
+	align-items: center;
+}
+.item-shop__buy-price span{
+	font-size: 36px;
+	font-weight: 900;
+}
+.item-shop__button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: #3D3D3F;
+	min-height: 54px;
+	padding: 0 36px;
+	text-transform: uppercase;
+	color: white;
+	font-size: 20px;
+	line-height: 115%;
+	transition: all 0.3s ease;
+}
+.item-shop__button:not(:last-child){
+	margin-right: 50px;
+}
+
+.item-shop__button:hover {
+	background: rgba(61, 61, 63, 0.7);
+	transition: all 0.3s ease;
+}
+
+
+.item-shop__image{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+@media (max-width: 1245px){
+	.item-shop__image img{
+		width: 400px;
+	}
+}
+
+@media (max-width: 973px){
+	.shop__col{
+		flex: 1 0 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	.page__shop{
+		padding: 75px 0;
+	}
+	.shop__row{
+		flex-direction: column;
+	}
+	.shop__body .shop__row:first-child {
+		flex-direction: column-reverse;
+	}
+	.item-shop__image{
+		margin-top: 50px;
+	}
+	.item-shop__image img{
+		width: auto;
+	}
+	.shop__item{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+	}
+	.item-shop__text{
+		text-align: center;
+	}
+
+	.shop__row:not(:last-child){
+		margin-bottom: 150px;
+	}
+}
+
+@media (max-width: 605px){
+	.item-shop__image img{
+		width: 400px;
+	}
+}
+
+@media (max-width: 425px){
+	.item-shop__image img{
+		width: 300px;
+	}
+}
+
+
+/*Коллекции Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+.page__collections {
+	padding: 100px 0;
+}
+.collections {}
+.collections__container {}
+._container {}
+.collections__body {}
+.collections__row {
+	display: flex;
+	margin: 0 -35px;
+}
+.collections__row:not(:last-child){
+	margin-bottom: 30px;
+}
+.collections__row.reverse{
+	flex-direction: row-reverse;
+}
+.collections__col {
+	flex: 1 0 50%;
+	padding: 0 35px;
+}
+.collections__item {
+	height: 100%;
+	position: relative;
+}
+.item-collections {}
+.item-collections__image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.item-collections__content {
+	padding: 74px 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.item-collections__title {
+	font-size: calc(34px + 16 * (100vw / 1440));
+	font-weight: bold;
+	color: #2C2A2B;
+	line-height: 144%;
+}
+.item-collections__title:not(:last-child){
+	margin-bottom: 60px;
+}
+.item-collections__label {
+	font-size: 48px;
+	color: #3D3D3F;
+	line-height: 118%;
+	letter-spacing: 0.09em;
+}
+.item-collections__label:not(:last-child){
+	margin-bottom: 30px;
+}
+.item-collections__text {
+	font-size: 20px;
+	line-height: 150%;
+	color: #3D3D3F;
+}
+.item-collections__text:not(:last-child){
+	margin-bottom: 50px;
+}
+.item-collections__button{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 54px;
+	background: #3D3D3F;
+	text-transform: uppercase;
+	color: white;
+	padding: 5px 40px;
+	font-size: 20px;
+	line-height: 115%;
+	transition: all 0.3s ease;
+}
+
+.item-collections__button:hover{
+	background: rgba(61, 61, 63, 0.7);
+	transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px){
+	.collections__row{
+		flex-direction: column;
+	}
+	.collections__row.reverse{
+		flex-direction: column;			
+	}
+	.collections__item.image{
+		height: auto;
+		padding-bottom: 118%;
+	}
+}
+
+@media (max-width: 768px){
+	.item-collections__content{
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		padding: 20px 20px;
+	}
+}
+
+@media (max-width: 543px){
+	.item-collections__text{
+		font-size: 16px;
+		width: 100%;
+	}
+}
+
+
+
+
+/*Компании Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+
+.page__brands {
+	padding: 100px 0 70px 0;
+}
+.brands__title{
+	font-size: 44px;
+	color: #3D3D3F;
+	line-height: 118%;
+	text-align: center;
+}
+.brands__title:not(:last-child){
+	margin-bottom: 50px;
+}
+.brands__row {
+	display: flex;
+	align-items: center;
+	margin: 0 -54px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.brands__col {
+	flex: 0 0 25%;
+	padding: 0 54px;
+	margin-bottom: 30px;
+}
+.brands__item {}
+.brands__logo {}
+
+
+@media (max-width: 425px){
+	.brands__title{
+		font-size: 34px;
+	}
+	.brands__col{
+		flex: 0 0 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+
+/*Контактная форма Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+.page__contact {
+	padding: 100px 0 100px 0;
+	text-align: center;
+}
+.contact__title {
+	font-weight: bold;
+	font-size: 50px;
+	color: #2C2A2B;
+	line-height: 144%;
+	text-align: center;
+}
+.contact__title:not(:last-child){
+	margin-bottom: 60px;
+}
+.contact__form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 770px;
+	margin: 0 auto;
+
+}
+.contact__form > *:first-child{
+	margin-right: 30px;
+}
+
+.contact__form input{
+	flex: 1 1 auto;
+	padding: 0 0 0 20px;
+	color: #3D3D3F;
+	font-size: 18px;
+	line-height: 116%;
+	min-height: 72px;
+}
+
+.contact__form button{
+	flex: 0 0 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 72px;
+	padding: 5px 0px;
+	background: #313131;
+	color: #FAFAFA;
+	text-transform: uppercase;
+	font-size: 16px;
+	line-height: 116%;
+	transition: all 0.3s ease;
+}
+
+.contact__form button:hover{
+	background: rgba(61, 61, 63, 0.7);
+	transition: all 0.3s ease;
+}
+
+@media (max-width: 425px){
+	.contact__title{
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 654px){
+	.contact__form {
+		flex-direction: column;
+
+	}
+	.contact__form > *:first-child{
+		margin-right: 0px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.contact__form input{
+		flex: 1 0 100%;
+		max-width: 100%;
+
+	}
+
+	.contact__form button{
+		flex: 1 0 100%;
+		max-width: 100%;
+		padding: 5px 70px;
+		width: 100%;
+	}
+
+}
+
+/*Блог Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+
+.page__blog {
+	padding: 60px 0 81px 0;
+}
+
+.blog__title {
+	text-align: center;
+	color: #2C2A2B;
+	font-weight: bold;
+	font-size: 50px;
+	line-height: 144%;
+}
+.blog__title:not(:last-child){
+	margin-bottom: 60px;
+}
+.blog__row {
+	display: flex;
+	margin: 0 -35px;
+	justify-content: center;
+}
+.blog__col {
+	flex: 0 0 33.333%;
+	padding: 0 35px;
+}
+.blog__item {}
+.item-blog {}
+.item-blog__image {
+	padding-bottom: 89%;
+	transition: all 0.3s ease;
+}
+.item-blog__image:hover{
+	opacity: 0.7;
+	transition: all 0.3s ease;
+}
+.item-blog__content {
+	padding: 30px 0 0 0;
+}
+.item-blog__title {
+	font-size: 28px;
+	line-height: 100%;
+}
+.item-blog__title a {
+	color: #2C2A2B;
+}
+.item-blog__title:not(:last-child){
+	margin-bottom: 15px;
+
+}
+.item-blog__text {
+	line-height: 144%;
+	font-size: 18px;
+	text-transform: capitalize;
+}
+
+@media (max-width: 768px){
+	.blog__row{
+		flex-wrap: wrap;
+	}
+	.blog__col{
+		min-width: 300px;
+	} 
+	.blog__col:not(:last-child){
+		margin-bottom: 50px;
+	}
+}
+
+@media (max-width: 559px){
+	.blog__col{
+		flex: 1 0 100%;
+	}
+}
+
+
+
+
+/*Подвал Ювелирного магазина------------------------------------------------------------------------------------------------------------------------*/
+
+.page__footer {
+	padding: 100px 0 0px 0;
+}
+.footer__body {
+	display: flex;
+	margin-bottom: 50px;
+}
+.footer__col {
+	flex: 0 1 25%
+}
+.footer__body  .footer__col:last-child{
+	flex: 0 1 25%
+}
+.footer__item {}
+.item-footer {}
+.item-footer__title {
+	font-size: 20px;
+	color: #2C2A2B;
+	line-height: 115%;
+}
+.item-footer__title:not(:last-child){
+	margin-bottom: 40px;
+}
+.item-footer__list {}
+.item-footer__list-item {
+	font-size: 16px;
+	line-height: 118%;
+}
+.item-footer__list-item:not(:last-child){
+	margin-bottom: 20px;
+}
+.item-footer__link {
+	color: #8E8E8E; 
+}
+.item-footer__link:hover{
+	text-decoration: underline;
+}
+.item-footer__text {
+	font-size: 16px;
+	line-height: 130%;
+	color: #8E8E8E; 
+}
+.item-footer__text:not(:last-child){
+	margin-bottom: 57px;
+}
+.item-footer__socials {
+	display: flex;
+	align-items: center;
+	margin: 0 -7.5px;
+}
+.item-footer__social {
+	padding: 0 7.5px;
+	font-size: 20px;
+}
+
+.item-footer__social a {
+	color: #2C2A2B;
+}
+
+.footer__bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #3D3D3F;
+	padding: 24px 0;
+	text-align: center;
+}
+.footer__rights {
+	font-size: 14px;
+	color: #C2C2C2;
+	line-height: 114%;
+	padding: 10px 0;
+}
+
+@media (max-width: 700px){
+	.footer__body{
+		flex-wrap: wrap;
+		text-align: center;
+		justify-content: center;
+	}
+	.footer__col{
+		min-width: 300px;
+		margin-bottom: 50px;
+	}
+	.item-footer__socials{
+		justify-content: center;
+	}
+}
